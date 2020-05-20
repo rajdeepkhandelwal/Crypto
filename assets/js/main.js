@@ -103,7 +103,7 @@ $(window).on('load', function() {
 	  				$(".link"+key).attr('href',"coin/details?symbol="+value['symbol']);
 				});
        		 }, 
-	    })
+	    });
 	});
     /*------------------
     update data perodically on main table
@@ -218,8 +218,8 @@ chart.padding(0, 15, 0, 15);
 
 chart.dateFormatter.dateFormat = "yyyy-MM-dd";
 // Load data
-chart.dataSource.url = "https://rest.coinapi.io/v1/ohlcv/"+symbol+"/USD/history?apikey=A3F51C80-BCF8-440B-8D5F-CB99A3578797&period_id=1DAY&time_start=2019-01-01T00:00:00&limit=10000";
-// chart.dataSource.parser = new am4core.JSONParser();
+chart.dataSource.url = "https://rest.coinapi.io/v1/ohlcv/"+symbol+"/USD/history?apikey=A3F51C80-BCF8-440B-8D5F-CB99A3578797&period_id=1DAY&time_start=2017-01-01T00:00:00&limit=10000";
+chart.dataSource.parser = new am4core.JSONParser();
 // chart.dataSource.parser.options.emptyAs = 0;
 
 
@@ -244,7 +244,7 @@ dateAxis.renderer.minLabelPosition = 0.01;
 dateAxis.renderer.maxLabelPosition = 0.99;
 dateAxis.keepSelection = true;
 dateAxis.minHeight = 30;
-
+// dateAxis.dateFormats.setKey("day", "MMMM dt");
 dateAxis.groupData = true;
 dateAxis.minZoomCount = 5;
 
@@ -275,9 +275,12 @@ series.dataFields.valueY = "price_close";
 series.dataFields.lowValueY = "price_low";
 series.dataFields.highValueY = "price_high";
 series.clustered = false;
-series.tooltipText = "Date:{dateX.formatDate('yyyy-MM-dd')}\nopen: ${openValueY}\nlow: ${lowValueY}\nhigh: ${highValueY}\nclose: ${valueY}";
+series.simplifiedProcessing = true;
+series.tooltipText = "Date:{dateX.formatDate('d MMMM, yyyy')}\nopen: ${openValueY}\nlow: ${lowValueY}\nhigh: ${highValueY}\nclose: ${valueY}";
 series.name = "MSFT";
 series.defaultState.transitionDuration = 0;
+
+
 
 var valueAxis2 = chart.yAxes.push(new am4charts.ValueAxis());
 valueAxis2.tooltip.disabled = true;
@@ -290,7 +293,7 @@ valueAxis2.renderer.baseGrid.disabled = true;
 valueAxis2.renderer.inside = true;
 valueAxis2.renderer.labels.template.verticalCenter = "bottom";
 valueAxis2.renderer.labels.template.padding(2, 2, 2, 2);
-//valueAxis.renderer.maxLabelPosition = 0.95;
+valueAxis.renderer.maxLabelPosition = 0.95;
 valueAxis2.renderer.fontSize = "0.8em"
 
 valueAxis2.renderer.gridContainer.background.fill = am4core.color("#000000");
@@ -304,7 +307,7 @@ series2.yAxis = valueAxis2;
 series2.tooltipText = "${valueY}";
 series2.name = "Series 2";
 // volume should be summed
-// series2.groupFields.valueY = "sum";
+series2.groupFields.valueY = "sum";
 series2.defaultState.transitionDuration = 0;
 
 chart.cursor = new am4charts.XYCursor();

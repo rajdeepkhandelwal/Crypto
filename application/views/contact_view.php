@@ -3,7 +3,7 @@
 
 
 <div class="container mt-4 mb-2" style="width:60%">
-    
+   <h3  class="text-center">Contact Us</h3> 
 <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/khandelwalrajdeep@gmail.com" method="post">
   <fieldset id="fs-frm-inputs">
     <div class="form-group">
