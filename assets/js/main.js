@@ -93,7 +93,7 @@ $(window).on('load', function() {
     $(document).ready(()=>{
 	    $.ajax({
 	        type : 'GET',
-	        url : 'https://api.nomics.com/v1/currencies/ticker?key=9fe31d6219dd1aa80874159b7a7355c6&ids=BTC,ETH,USDT,MKR,FTXTOKEN,REP,DX,CPX,FSN,IOST,ENG,ENJ,REQ&interval=1d',
+	        url : 'https://api.nomics.com/v1/currencies/ticker?key=yourkey&ids=BTC,ETH,USDT,MKR,FTXTOKEN,REP,DX,CPX,FSN,IOST,ENG,ENJ,REQ&interval=1d',
 	        success : function(data){
 	        	$.each( data, function(key, value ) {
 	        
@@ -111,7 +111,7 @@ $(window).on('load', function() {
 	(function update() {
 	    $.ajax({
 	        type : 'GET',
-	        url : 'https://api.nomics.com/v1/currencies/ticker?key=9fe31d6219dd1aa80874159b7a7355c6&ids=BTC,ETH,LINK,USDT,MKR,PAX,FTXTOKEN,REP,TUSD,DX,LSK&interval=1d',
+	        url : 'https://api.nomics.com/v1/currencies/ticker?key=yourKey&ids=BTC,ETH,LINK,USDT,MKR,PAX,FTXTOKEN,REP,TUSD,DX,LSK&interval=1d',
 	        success : function(data){
 	        	$.each( data, function(key, value ) {
 	        
@@ -157,7 +157,7 @@ $(window).on('load', function() {
 	 	
 	 	$.ajax({
 	 		type : 'GET',
-	 		url : 'https://api.nomics.com/v1/currencies?key=9fe31d6219dd1aa80874159b7a7355c6&ids='+symbol,
+	 		url : 'https://api.nomics.com/v1/currencies?key=yourkey&ids='+symbol,
 	 		success: function(data){
 	 			$('.name').html(data[0].name);
 	 			$('.symbol').html("("+data[0].original_symbol+")");
@@ -174,7 +174,7 @@ $(window).on('load', function() {
 	 	
 	 	$.ajax({
 	 		type : 'GET',
-	 		url : 'https://api.nomics.com/v1/currencies/ticker?key=9fe31d6219dd1aa80874159b7a7355c6&ids='+symbol,
+	 		url : 'https://api.nomics.com/v1/currencies/ticker?key=yourkey&ids='+symbol,
 	 		success: function(data){
 	 			$('.price').html("$"+data[0].price);
 	 			$('.market_cap').html("$"+data[0].market_cap);
@@ -218,7 +218,7 @@ chart.padding(0, 15, 0, 15);
 
 chart.dateFormatter.dateFormat = "yyyy-MM-dd";
 // Load data
-chart.dataSource.url = "https://rest.coinapi.io/v1/ohlcv/"+symbol+"/USD/history?apikey=A3F51C80-BCF8-440B-8D5F-CB99A3578797&period_id=1DAY&time_start=2017-01-01T00:00:00&limit=10000";
+chart.dataSource.url = "https://rest.coinapi.io/v1/ohlcv/"+symbol+"/USD/history?apikey=yourkey&period_id=1DAY&time_start=2017-01-01T00:00:00&limit=10000";
 chart.dataSource.parser = new am4core.JSONParser();
 // chart.dataSource.parser.options.emptyAs = 0;
 
