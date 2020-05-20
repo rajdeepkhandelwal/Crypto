@@ -55,7 +55,7 @@ class Home extends CI_Controller
 				  'smtp_port' => 465,
 				  'smtp_timeout' => 10,
 				  'smtp_user' => 'newsletter.crypto@gmail.com', // change it to yours
-				  'smtp_pass' => 'C123456c', // change it to yours
+				  'smtp_pass' => '******', // change it to yours
 				  'mailtype' => 'html',
 				  'newline' => "\r\n",
 				  'charset' =>'utf-8',
@@ -84,9 +84,7 @@ class Home extends CI_Controller
 		
 	}
 
-	public function xyz(){
-		$this->load->view('xyz.asp');
-	}
+	
 }
 
 ?>
